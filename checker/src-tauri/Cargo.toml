@@ -1,0 +1,51 @@
+[package]
+name = "cs2-checker"
+version = "2.0.0"
+description = "CS2 Checker"
+authors = ["cr1stal12444"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.5", features = [] }
+
+[dependencies]
+tauri = { version = "2.10", features = ["devtools"] }
+tauri-plugin-fs = "2.4"
+tauri-plugin-shell = "2.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+rusqlite = { version = "0.31", features = ["bundled"] }
+discord-rich-presence = "0.2"
+sysinfo = "0.29"
+aes = "0.8"
+cipher = "0.4"
+ctr = "0.9"
+ring = "0.17"
+enigo = "0.1"
+regex = "1"
+chrono = "0.4"
+rayon = "1"
+window-vibrancy = "0.6"
+log = "0.4"
+env_logger = "0.10"
+base64 = "0.21"
+walkdir = "2"
+sha2 = "0.10"
+hex = "0.4"
+open = "5"
+lazy_static = "1"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = [
+    "winuser", "processthreadsapi", "tlhelp32", "memoryapi",
+    "psapi", "winnt", "handleapi", "securitybaseapi",
+    "winbase", "errhandlingapi", "debugapi", "lmaccess",
+    "iphlpapi", "pdh", "powrprof", "dwmapi",
+    "winreg", "ntdef", "libloaderapi"
+] }
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

@@ -1,0 +1,33 @@
+[package]
+name = "deti00checker-v2"
+version = "1.0.0"
+description = "DETI00YKH CHECKER launcher"
+authors = ["cr1stal12444"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.5", features = [] }
+
+[dependencies]
+tauri = { version = "2.10", features = ["devtools"] }
+tauri-plugin-shell = "2.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", features = ["json", "stream"] }
+aes = "0.8"
+cipher = "0.4"
+ctr = "0.9"
+base64 = "0.21"
+semver = "1.0"
+regex = "1"
+ring = "0.17"
+log = "0.4"
+env_logger = "0.10"
+open = "5"
+zip = "0.6"
+window-vibrancy = "0.6"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
